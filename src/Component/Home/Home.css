@@ -1,0 +1,38 @@
+.home {
+  display: flex;
+  height: 100vh;
+  padding: 4.8rem 0 0 0;
+}
+h1{
+  margin: 73px 0 10px 0;
+  font-weight: 600;
+  font-size: 45px;
+  width: 70%;
+  margin-left: 9%;
+  text-align: initial;
+  color: var(--blue);
+}
+.block-r > span{
+  display: block;
+  margin-bottom: 10px;
+  color: var(--gray);
+  font-size: 20px;
+  max-width: 36rem;
+  text-align: initial;
+  margin-left: 9%;
+  padding-bottom: 3em;
+}
+
+input {
+  width: 80%;
+  border-radius: 20px;
+  padding: 1em;
+}
+
+.block-r > i {
+  margin-left: -35px;
+}
+
+.block-l > img {
+  height: 58%;
+}

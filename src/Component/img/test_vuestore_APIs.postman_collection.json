@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "771fd255-1188-4b9d-9484-45bc02f7723f",
+		"name": "test_vuestore_APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sellerlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"query\":{\"bool\":{\"filter\":[{\"geo_distance\":{\"distance\":\"50.49km\",\"location_data\":{\"lat\":21.216979705487,\"lon\":72.759776451589}}},{}]}},\"sort\":[{\"_geo_distance\":{\"location_data\":{\"lat\":21.216979705487,\"lon\":72.759776451589},\"order\":\"asc\",\"unit\":\"km\",\"mode\":\"min\",\"distance_type\":\"arc\"}}],\"script_fields\":{\"distance\":{\"script\":\"doc[\\\"location_data\\\"].planeDistance(21.216979705487,72.759776451589) * 0.001\"}},\"_source\":true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://vuestore.doyenhub.com/api/catalog/vue_storefront_catalog/sellerlist/_search?from=0&size=50&sort=entity_id%3Aasc",
+					"protocol": "https",
+					"host": [
+						"vuestore",
+						"doyenhub",
+						"com"
+					],
+					"path": [
+						"api",
+						"catalog",
+						"vue_storefront_catalog",
+						"sellerlist",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "50"
+						},
+						{
+							"key": "sort",
+							"value": "entity_id%3Aasc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category_list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://vuestore.doyenhub.com/api/catalog/vue_storefront_catalog/category/_search?from=0&size=10&sort=",
+					"protocol": "https",
+					"host": [
+						"vuestore",
+						"doyenhub",
+						"com"
+					],
+					"path": [
+						"api",
+						"catalog",
+						"vue_storefront_catalog",
+						"category",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "0"
+						},
+						{
+							"key": "request",
+							"value": "%7B%22query%22%3A%7B%22bool%22%3A%7B%22filter%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22range%22%3A%7B%22product_count%22%3A%7B%22gt%22%3A1%7D%7D%7D%2C%7B%22terms%22%3A%7B%22is_active%22%3A%5Btrue%5D%7D%7D%5D%7D%7D%7D%7D%7D",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"script_fields\":{\"distance\":{\"script\":\"doc[\\\"extension_attributes.seller_id.location_data\\\"].planeDistance(21.216979705487,72.759776451589) * 0.001\"}},\"_source\":true,\"sort\":[{\"_geo_distance\":{\"extension_attributes.seller_id.location_data\":[72.759776451589,21.216979705487],\"order\":\"asc\",\"unit\":\"km\",\"mode\":\"min\",\"distance_type\":\"arc\"}}],\"query\":{\"bool\":{\"filter\":{\"bool\":{\"must\":[{\"geo_distance\":{\"distance\":\"50.49km\",\"extension_attributes.seller_id.location_data\":{\"lat\":21.216979705487,\"lon\":72.759776451589}}},{\"terms\":{\"visibility\":[2,3,4]}},{\"range\":{\"special_price\":{\"gt\":0}}},{\"terms\":{\"status\":[0,1]}}]}}}}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://vuestore.doyenhub.com/api/catalog/vue_storefront_catalog/product/_search?_source_exclude=%2A.msrp_display_actual_price_type%2Crequired_options%2Cupdated_at%2Ccreated_at%2Cattribute_set_id%2Coptions_container%2Cmsrp_display_actual_price_type%2Chas_options%2Cstock.manage_stock%2Cstock.use_config_min_qty%2Cstock.use_config_notify_stock_qty%2Cstock.stock_id%2Cstock.use_config_backorders%2Cstock.use_config_enable_qty_inc%2Cstock.enable_qty_increments%2Cstock.use_config_manage_stock%2Cstock.use_config_min_sale_qty%2Cstock.notify_stock_qty%2Cstock.use_config_max_sale_qty%2Cstock.use_config_max_sale_qty%2Cstock.qty_increments%2Csmall_image%2Csgn%2C%2A.sgn&from=0&size=30&sort=id%3Aasc",
+					"protocol": "https",
+					"host": [
+						"vuestore",
+						"doyenhub",
+						"com"
+					],
+					"path": [
+						"api",
+						"catalog",
+						"vue_storefront_catalog",
+						"product",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "_source_exclude",
+							"value": "%2A.msrp_display_actual_price_type%2Crequired_options%2Cupdated_at%2Ccreated_at%2Cattribute_set_id%2Coptions_container%2Cmsrp_display_actual_price_type%2Chas_options%2Cstock.manage_stock%2Cstock.use_config_min_qty%2Cstock.use_config_notify_stock_qty%2Cstock.stock_id%2Cstock.use_config_backorders%2Cstock.use_config_enable_qty_inc%2Cstock.enable_qty_increments%2Cstock.use_config_manage_stock%2Cstock.use_config_min_sale_qty%2Cstock.notify_stock_qty%2Cstock.use_config_max_sale_qty%2Cstock.use_config_max_sale_qty%2Cstock.qty_increments%2Csmall_image%2Csgn%2C%2A.sgn"
+						},
+						{
+							"key": "from",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "30"
+						},
+						{
+							"key": "sort",
+							"value": "id%3Aasc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cat_product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"script_fields\":{\"distance\":{\"script\":\"doc[\\\"extension_attributes.seller_id.location_data\\\"].planeDistance(21.216979705487,72.759776451589) * 0.001\"}},\"_source\":true,\"sort\":[{\"_geo_distance\":{\"extension_attributes.seller_id.location_data\":[72.759776451589,21.216979705487],\"order\":\"asc\",\"unit\":\"km\",\"mode\":\"min\",\"distance_type\":\"arc\"}}],\"query\":{\"bool\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"visibility\":[2,3,4]}},{\"terms\":{\"status\":[0,1]}},{\"geo_distance\":{\"distance\":\"50.49km\",\"extension_attributes.seller_id.location_data\":{\"lat\":21.216979705487,\"lon\":72.759776451589}}},{\"terms\":{\"category_ids\":[22]}}]}}}}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://vuestore.doyenhub.com/api/catalog/vue_storefront_catalog/product/_search?_source_exclude=description%2Csgn%2C%2A.sgn%2Cmsrp_display_actual_price_type%2C%2A.msrp_display_actual_price_type%2Crequired_options&_source_include=type_id%2Csku%2Cname%2Ctax_class_id%2Cspecial_price%2Cspecial_to_date%2Cspecial_from_date%2Cprice%2CpriceInclTax%2CoriginalPriceInclTax%2CoriginalPrice%2CspecialPriceInclTax%2Cid%2Cimage%2Csale%2Cnew%2Cconfigurable_children.image%2Cconfigurable_children.sku%2Cconfigurable_children.price%2Cconfigurable_children.special_price%2Cconfigurable_children.priceInclTax%2Cconfigurable_children.specialPriceInclTax%2Cconfigurable_children.originalPrice%2Cconfigurable_children.originalPriceInclTax%2Cconfigurable_children.color%2Cconfigurable_children.size%2Cconfigurable_children.id%2Cconfigurable_children.tier_prices%2Cproduct_links%2Curl_path%2Curl_key%2Cstatus%2Ctier_prices%2Cextension_attributes&from=3&size=5&sort=",
+					"protocol": "https",
+					"host": [
+						"vuestore",
+						"doyenhub",
+						"com"
+					],
+					"path": [
+						"api",
+						"catalog",
+						"vue_storefront_catalog",
+						"product",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "_source_exclude",
+							"value": "description%2Csgn%2C%2A.sgn%2Cmsrp_display_actual_price_type%2C%2A.msrp_display_actual_price_type%2Crequired_options"
+						},
+						{
+							"key": "_source_include",
+							"value": "type_id%2Csku%2Cname%2Ctax_class_id%2Cspecial_price%2Cspecial_to_date%2Cspecial_from_date%2Cprice%2CpriceInclTax%2CoriginalPriceInclTax%2CoriginalPrice%2CspecialPriceInclTax%2Cid%2Cimage%2Csale%2Cnew%2Cconfigurable_children.image%2Cconfigurable_children.sku%2Cconfigurable_children.price%2Cconfigurable_children.special_price%2Cconfigurable_children.priceInclTax%2Cconfigurable_children.specialPriceInclTax%2Cconfigurable_children.originalPrice%2Cconfigurable_children.originalPriceInclTax%2Cconfigurable_children.color%2Cconfigurable_children.size%2Cconfigurable_children.id%2Cconfigurable_children.tier_prices%2Cproduct_links%2Curl_path%2Curl_key%2Cstatus%2Ctier_prices%2Cextension_attributes"
+						},
+						{
+							"key": "from",
+							"value": "3"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "sort",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

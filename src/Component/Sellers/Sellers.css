@@ -1,0 +1,36 @@
+.Sellers {
+    margin-top: 5%;
+}
+
+.sellerHead {
+    margin-left: -5%;
+}
+
+.sellerLink {
+    position: relative;
+    float: right;
+    margin-top: -3%;
+    margin-right: 5%;
+    color: var(--blue);
+    font-weight: 500;
+}
+
+.fadeSeller {
+    pointer-events: none;
+    background: linear-gradient(90deg, white, transparent 30%, transparent 70%, white);
+    position: absolute;
+    inset: 0;
+    height: 70vh;
+    position: absolute;
+    margin-top: 60em;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1em;
+    font-size: 25px;
+    padding-top: 2px;
+    padding-left: 6em;
+}
