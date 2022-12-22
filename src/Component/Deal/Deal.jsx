@@ -8,7 +8,8 @@ import './Deal.css';
 
 function Deal() {
 
-    const API_URL = "https://jsonplaceholder.typicode.com/comments";
+    // const API_URL = "https://jsonplaceholder.typicode.com/comments";
+    const API_URL = process.env.REACT_APP_API_URL;
     const [ users, setUsers ] = useState([]);
 
     useEffect(() => {
@@ -17,6 +18,7 @@ function Deal() {
 
     const loadData = async () => {
         const response = await fetch(API_URL);
+        console.log("response => ", response);
         const data = await response.json();
         setUsers(data);
         console.log(data);
@@ -96,6 +98,7 @@ function Deal() {
                 />
             </div>
         ))}
+
         </Carousel>
       <div className='fadeDeal' />
     </>

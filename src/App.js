@@ -7,6 +7,7 @@ import bgImg from './Component/img/banner.webp';
 import Deal from './Component/Deal/Deal';
 
 function App() {
+  console.log(`${process.env.REACT_APP_API_URL}`);
   return (
     <div className="App">
       <Navbar />

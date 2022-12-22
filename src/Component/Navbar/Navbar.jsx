@@ -7,16 +7,6 @@ const Navbar = () => {
 
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
-  const navToggle = () => {
-    if (active === "nav__menu") {
-      setActive("nav__menu nav__active");
-    } else setActive("nav__menu");
-
-    // Icon Toggler
-    if (icon === "nav__toggler") {
-      setIcon("nav__toggler toggle");
-    } else setIcon("nav__toggler");
-  };
 
   return (
     <div
@@ -48,7 +38,7 @@ const Navbar = () => {
             </li>
             <li className="nav__item">
               <Link className="nav__link" to="heart" spy={true} smooth={true}>
-                <i class="fa fa-heart" aria-hidden="true"></i>
+                <i className="fa fa-heart" aria-hidden="true"></i>
               </Link>
             </li>
             <li className="nav__item">
